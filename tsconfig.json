@@ -1,0 +1,61 @@
+{
+  "compilerOptions": {
+    "target": "ESNext", // Sets the JavaScript version for emitted JS.
+    "module": "NodeNext", // Uses Node.js-style module resolution for ES modules.
+    "pretty": true, // Makes the output more readable.
+    "moduleResolution": "NodeNext", // Resolves modules similar to Node.js.
+    "lib": [
+      "ESNext",
+      "DOM"
+    ], // Specifies which libraries to include in the compilation.
+    "baseUrl": "./", // Specifies the base URL for imports.
+    "noEmit": false, // Enables emitting output files.
+    "rootDir": "./", // Specifies the root folder for source files.
+    "outDir": "./dist", // Specifies the output folder for emitted files.
+    "esModuleInterop": true, // Provides compatibility between CommonJS and ES Modules.
+    "forceConsistentCasingInFileNames": true, // Ensures consistent import casing.
+    "strict": true, // Enables all strict type-checking options.
+    "skipLibCheck": true, // Skips type checking of declaration files.
+    "experimentalDecorators": true, // Enables support for decorators.
+    "emitDecoratorMetadata": true, // Emits type metadata for decorators.
+    "alwaysStrict": true, // Ensures that "use strict" is included in generated files.
+    "strictNullChecks": true, // Ensures null and undefined are handled explicitly.
+    "strictPropertyInitialization": true, // Ensures class properties are initialized.
+    "resolveJsonModule": true, // Allows importing JSON files.
+    "allowSyntheticDefaultImports": true, // Enables default import compatibility for CommonJS.
+    "noUnusedLocals": true, // Warns if there are unused local variables.
+    "noUnusedParameters": true, // Warns if there are unused function parameters.
+    "noImplicitReturns": true, // Warns if a function might not return a value.
+    "noFallthroughCasesInSwitch": true, // Warns on fallthrough cases in switch statements.
+    "useDefineForClassFields": true, // Ensures class fields are transpiled to `define` semantics.
+    "paths": {
+      "@src/*": [
+        "./*"
+      ] // Example of a path alias for better imports.
+    },
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin",
+        "configFile": "./tslint.json"
+      },
+      {
+        "name": "typescript-styled-plugin" // For enhanced support with styled-components.
+      },
+      {
+        "name": "typescript-plugin-css-modules" // Provides CSS Modules type support.
+      },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ]
+  },
+  "include": [
+    "./**/*" // Specifies files to include in the compilation.
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "dist" // Ensures the output folder is not included.
+  ]
+}
